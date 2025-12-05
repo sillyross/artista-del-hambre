@@ -10,6 +10,18 @@
         :root { --color-primary: #8b3c3c; --color-secondary: #333333; --color-background: #f4f4f4; }
         .font-merriweather { font-family: 'Merriweather', serif; }
         .font-roboto { font-family: 'Roboto', sans-serif; }
+
+        /* --- MEJORA 1: Animación de entrada --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Cursor de lupa para las imágenes */
+        .zoom-cursor { cursor: zoom-in; }
     </style>
 </head>
 <body class="font-roboto bg-gray-100">
@@ -27,24 +39,24 @@
         </div>
     </nav>
     
-    <main class="pt-32 pb-16 min-h-screen">
+    <main class="pt-32 pb-16 min-h-screen animate-fade-in">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl font-merriweather font-bold text-gray-900 mb-10 border-b-4 border-red-700 inline-block pb-1">
                 Galería
             </h1>
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white rounded-lg shadow-xl overflow-hidden aspect-square">
-                    <img src="perro.jpeg" alt="Dibujo de Perro" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden aspect-square group">
+                    <img src="perro.jpeg" alt="Dibujo de Perro" class="w-full h-full object-cover transition duration-500 transform group-hover:scale-110 zoom-cursor" onclick="openLightbox(this.src)">
                 </div>
-                <div class="bg-white rounded-lg shadow-xl overflow-hidden aspect-square">
-                    <img src="zorro.jpeg" alt="Ilustración de Zorro" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden aspect-square group">
+                    <img src="zorro.jpeg" alt="Ilustración de Zorro" class="w-full h-full object-cover transition duration-500 transform group-hover:scale-110 zoom-cursor" onclick="openLightbox(this.src)">
                 </div>
-                <div class="bg-white rounded-lg shadow-xl overflow-hidden aspect-square">
-                    <img src="eye.jpeg" alt="Ojo en madera" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden aspect-square group">
+                    <img src="eye.jpeg" alt="Ojo en madera" class="w-full h-full object-cover transition duration-500 transform group-hover:scale-110 zoom-cursor" onclick="openLightbox(this.src)">
                 </div>
-                <div class="bg-white rounded-lg shadow-xl overflow-hidden aspect-square">
-                    <img src="medusa.jpeg" alt="Dibujo de Medusa a color" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden aspect-square group">
+                    <img src="medusa.jpeg" alt="Dibujo de Medusa a color" class="w-full h-full object-cover transition duration-500 transform group-hover:scale-110 zoom-cursor" onclick="openLightbox(this.src)">
                 </div>
             </div>
             <p class="mt-10 text-center text-lg text-gray-600">¿Interesado en una pieza? Contáctanos para cotizarla o pedir una personalizada.</p>
@@ -57,5 +69,40 @@
             <p class="font-roboto">&copy; 2025 Artista del Hambre.</p>
         </div>
     </footer>
+
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black bg-opacity-95 hidden flex justify-center items-center cursor-pointer opacity-0 transition-opacity duration-300" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" class="max-h-[90vh] max-w-[90vw] object-contain shadow-2xl border-2 border-gray-800 rounded-md transform scale-95 transition-transform duration-300">
+        <p class="absolute bottom-10 text-white font-roboto text-sm tracking-widest uppercase opacity-70">Haz clic en cualquier lugar para cerrar</p>
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(src) {
+            // Mostrar el contenedor
+            lightbox.classList.remove('hidden');
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 10);
+            lightboxImg.src = src;
+        }
+
+        function closeLightbox() {
+            // Animar salida
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            
+            // Esperar a que termine la animación para ocultar el div
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = '';
+            }, 300);
+        }
+    </script>
+
 </body>
 </html>
