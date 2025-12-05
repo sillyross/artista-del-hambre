@@ -18,11 +18,26 @@
         .animate-fade-in {
             animation: fadeInUp 0.8s ease-out forwards;
         }
+
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #8b3c3c;
+            width: 20px;
+            height: 20px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
-<body class="font-roboto bg-gray-100">
+<body class="font-roboto bg-gray-100 flex flex-col min-h-screen">
 
-    <nav class="bg-white shadow-xl fixed w-full z-20">
+    <nav class="bg-white shadow-xl fixed w-full z-20 top-0 left-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
@@ -35,54 +50,133 @@
         </div>
     </nav>
     
-    <main class="pt-32 pb-16 min-h-screen animate-fade-in">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main class="pt-32 pb-16 flex-grow animate-fade-in">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 class="text-4xl font-merriweather font-bold text-gray-900 mb-8 border-b-4 border-red-700 inline-block pb-1">
                 Contacto
             </h1>
 
-            <div class="bg-white p-10 rounded-xl shadow-2xl grid md:grid-cols-2 gap-12 items-start">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
                 
-                <div>
-                    <h2 class="text-3xl font-merriweather font-semibold text-gray-900 mb-6">Información Directa</h2>
-                    <p class="text-gray-700 mb-8 text-lg font-roboto">Utiliza cualquiera de estos métodos para ponerte en contacto y cotizar tus ideas.</p>
-                    
-                    <div class="space-y-6 mb-8">
-                        <div class="flex items-center space-x-3">
-                            <svg class="w-8 h-8 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            <span class="text-lg font-medium text-gray-800">Email: <a href="mailto:silvvannahdez@gmail.com" class="text-red-700 hover:underline">silvvannahdez@gmail.com</a></span>
+                <div class="space-y-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-merriweather font-semibold text-gray-900 mb-6">Información Directa</h2>
+                        <p class="text-gray-700 mb-8 text-lg font-roboto">Utiliza cualquiera de estos métodos para ponerte en contacto y cotizar tus ideas.</p>
+                        
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-8 h-8 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                <span class="text-lg font-medium text-gray-800 break-all">Email: <a href="mailto:silvvannahdez@gmail.com" class="text-red-700 hover:underline">silvvannahdez@gmail.com</a></span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4-0h-4a2 2 0 01-2-2v-6a2 2 0 012-2h4m4 0V5a2 2 0 00-2-2H9a2 2 0 00-2 2v3m4 0h.01"></path></svg>
+                                <span class="text-lg font-medium text-gray-800">Teléfono: 444 222 6134</span>
+                            </div>
                         </div>
-                        <div class="flex items-center space-x-3">
-                            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4-0h-4a2 2 0 01-2-2v-6a2 2 0 012-2h4m4 0V5a2 2 0 00-2-2H9a2 2 0 00-2 2v3m4 0h.01"></path></svg>
-                            <span class="text-lg font-medium text-gray-800">Teléfono/WhatsApp: 444 222 6134</span>
+                        
+                        <a href="https://wa.me/524442226134" target="_blank" class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md transform hover:scale-105">
+                            Enviar Mensaje por WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="bg-gray-200 p-6 rounded-xl shadow-inner text-center border border-gray-300">
+                        <h3 class="text-xl font-merriweather font-semibold text-gray-800 mb-2">Visita la Web (QR)</h3>
+                        <p class="text-gray-600 mb-4 font-roboto text-sm">Escanea para ir a la página principal:</p>
+                        
+                        <div class="p-3 bg-white inline-block rounded-lg border-2 border-gray-300 shadow-sm">
+                            <img src="qr.png" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sillyross.github.io/un-artista-del-hambre/'" alt="Código QR Artista del Hambre" class="w-[150px] h-[150px] object-contain">
                         </div>
                     </div>
-                    
-                    <a href="https://wa.me/524442226134" target="_blank" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md transform hover:scale-105">
-                        Enviar Mensaje por WhatsApp
-                    </a>
                 </div>
 
-                <div class="bg-gray-50 p-6 rounded-xl shadow-inner text-center">
-                    <h3 class="text-2xl font-merriweather font-semibold text-gray-800 mb-4">Accede a la Web (QR)</h3>
-                    <p class="text-gray-600 mb-4 font-roboto">Escanea este código con tu móvil para ir directamente a la página principal:</p>
-                    
-                    <div class="p-4 bg-white inline-block rounded-lg border-4 border-gray-300 shadow-xl">
-                        <img src="qr.png" alt="Código QR Artista del Hambre" class="w-[200px] h-[200px] object-contain">
+                <div class="bg-white p-8 rounded-xl shadow-2xl relative overflow-hidden">
+                    <h2 class="text-3xl font-merriweather font-semibold text-gray-900 mb-2">Escríbenos</h2>
+                    <p class="text-gray-600 mb-6">Llena el formulario y recibirás una confirmación en tu correo.</p>
+
+                    <form id="contactForm" class="space-y-6">
+                        
+                        <div>
+                            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-700 focus:border-red-700 transition outline-none"
+                                placeholder="Tu nombre">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-700 focus:border-red-700 transition outline-none"
+                                placeholder="ejemplo@correo.com">
+                            <p class="text-xs text-gray-500 mt-1">Te enviaremos la confirmación a esta dirección.</p>
+                        </div>
+
+                        <div>
+                            <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-700 focus:border-red-700 transition outline-none"
+                                placeholder="¿En qué podemos ayudarte?"></textarea>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="w-full bg-red-800 hover:bg-red-900 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md transform active:scale-95 flex justify-center items-center">
+                            <span>Enviar Solicitud</span>
+                        </button>
+                    </form>
+
+                    <div id="successMessage" class="hidden absolute inset-0 bg-white flex-col justify-center items-center text-center p-8 z-10 animate-fade-in">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-merriweather font-bold text-gray-900 mb-2">¡Mensaje Enviado!</h3>
+                        <p class="text-gray-600 mb-6">Hemos enviado un correo de confirmación a <span id="confirmEmailDisplay" class="font-bold text-gray-900"></span>.</p>
+                        <button onclick="resetForm()" class="text-red-700 font-bold hover:underline">Enviar otro mensaje</button>
                     </div>
 
-                    <p class="mt-4 text-xs text-gray-500 font-mono break-all">
-                        https://sillyross.github.io/un-artista-del-hambre/
-                    </p>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-6">
+    <footer class="bg-gray-800 text-white py-6 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="font-roboto">&copy; 2025 Artista del Hambre.</p>
+            <p class="font-roboto">&copy; 2025 Artista del Hambre. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const confirmEmailDisplay = document.getElementById('confirmEmailDisplay');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const userEmail = document.getElementById('email').value;
+            const originalBtnText = submitBtn.innerHTML;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="loader mr-2"></span> Enviando...';
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            setTimeout(() => {
+                
+
+                successMessage.classList.remove('hidden');
+                successMessage.classList.add('flex');
+                confirmEmailDisplay.textContent = userEmail;
+                
+                form.reset();
+                
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+
+            }, 2000);
+        });
+
+        function resetForm() {
+            successMessage.classList.add('hidden');
+            successMessage.classList.remove('flex');
+        }
+    </script>
 </body>
 </html>
