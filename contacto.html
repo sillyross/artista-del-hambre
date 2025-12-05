@@ -6,6 +6,14 @@
     <title>Artista del Hambre | Contacto</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("gqDzD5NwMOx6SPNoc");
+       })();
+    </script>
+
     <style>
         :root { --color-primary: #8b3c3c; --color-secondary: #333333; --color-background: #f4f4f4; }
         .font-merriweather { font-family: 'Merriweather', serif; }
@@ -148,6 +156,9 @@
         const successMessage = document.getElementById('successMessage');
         const confirmEmailDisplay = document.getElementById('confirmEmailDisplay');
 
+        const serviceID = 'service_qb3wxkd';
+        const templateID = 'template_utajaqr';
+
         form.addEventListener('submit', function(e) {
             e.preventDefault(); 
             const userEmail = document.getElementById('email').value;
@@ -157,20 +168,22 @@
             submitBtn.innerHTML = '<span class="loader mr-2"></span> Enviando...';
             submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
 
-            setTimeout(() => {
-                
-
-                successMessage.classList.remove('hidden');
-                successMessage.classList.add('flex');
-                confirmEmailDisplay.textContent = userEmail;
-                
-                form.reset();
-                
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
-
-            }, 2000);
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    successMessage.classList.remove('hidden');
+                    successMessage.classList.add('flex');
+                    confirmEmailDisplay.textContent = userEmail;
+                    form.reset();
+                    
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                }, (err) => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                    alert('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.\nError: ' + JSON.stringify(err));
+                });
         });
 
         function resetForm() {
