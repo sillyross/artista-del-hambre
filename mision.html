@@ -10,6 +10,15 @@
         :root { --color-primary: #8b3c3c; --color-secondary: #333333; --color-background: #f4f4f4; }
         .font-merriweather { font-family: 'Merriweather', serif; }
         .font-roboto { font-family: 'Roboto', sans-serif; }
+        
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
     </style>
 </head>
 <body class="font-roboto bg-gray-100">
@@ -27,13 +36,21 @@
         </div>
     </nav>
     
-    <main class="pt-32 pb-16 min-h-screen">
+    <main class="pt-32 pb-16 min-h-screen animate-fade-in">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl font-merriweather font-bold text-gray-900 mb-8 border-b-4 border-red-700 inline-block pb-1">
                 Misión
             </h1>
 
-            <div class="bg-white p-10 rounded-xl shadow-2xl">
+            <div class="bg-white p-10 rounded-xl shadow-2xl relative">
+                <div class="flex justify-center mb-6">
+                    <div class="p-4 bg-red-100 rounded-full">
+                        <svg class="w-10 h-10 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                        </svg>
+                    </div>
+                </div>
+
                 <p class="text-xl text-gray-700 leading-loose font-roboto">
                     Buscamos crear conciencia sobre las condiciones reales que enfrentan los artistas independientes, promoviendo un cambio en la forma en que la sociedad valora y apoya el trabajo creativo.
                 </p>

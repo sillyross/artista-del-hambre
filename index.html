@@ -7,10 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Estilos de diseño: Rojo Ladrillo y Gris Oscuro */
         :root { --color-primary: #8b3c3c; --color-secondary: #333333; --color-background: #f4f4f4; }
         .font-merriweather { font-family: 'Merriweather', serif; }
         .font-roboto { font-family: 'Roboto', sans-serif; }
+        
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
     </style>
 </head>
 <body class="font-roboto bg-gray-100">
@@ -25,37 +33,47 @@
         </div>
     </nav>
     
-    <main class="pt-32 pb-16 min-h-screen flex items-center justify-center">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-5xl font-merriweather font-extrabold text-gray-900 mb-10">
-                Bienvenido al Espacio de Arte Independiente
-            </h1>
+    <main class="pt-32 pb-16 min-h-screen animate-fade-in">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="text-center mb-16">
+                <span class="text-red-700 font-bold tracking-widest uppercase text-sm mb-2 block">Colectivo de Arte Independiente</span>
+                <h1 class="text-5xl md:text-6xl font-merriweather font-extrabold text-gray-900 leading-tight mb-6">
+                    El arte de resistir <br> <span class="text-gray-500 italic">creando.</span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto font-roboto">
+                    Un espacio donde la autenticidad supera al mercado. Explora, conecta y apoya a los artistas del hambre.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <a href="informacion.html" class="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] border-b-4 border-red-700 block">
-                    <h2 class="text-3xl font-merriweather font-bold text-gray-900">Información</h2>
-                    <p class="text-gray-600 mt-2">Conoce cómo puedes comprar o colaborar.</p>
+                <a href="galeria.html" class="md:col-span-2 group relative overflow-hidden rounded-2xl shadow-2xl h-64 flex items-center justify-center bg-gray-900 hover:scale-[1.02] transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-r from-red-900 to-black opacity-80 group-hover:opacity-70 transition"></div>
+                    <div class="relative z-10 text-center">
+                        <h2 class="text-4xl font-merriweather font-bold text-white mb-2">Galería</h2>
+                        <span class="text-gray-300 font-roboto border-b border-red-500 pb-1">Ver Obras Disponibles &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="informacion.html" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-l-4 border-red-700 group">
+                    <h2 class="text-2xl font-merriweather font-bold text-gray-900 group-hover:text-red-700 transition">Información</h2>
+                    <p class="text-gray-600 mt-2 text-sm">¿Cómo funciona nuestro colectivo?</p>
                 </a>
                 
-                <a href="mision.html" class="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] border-b-4 border-red-700 block">
-                    <h2 class="text-3xl font-merriweather font-bold text-gray-900">Misión</h2>
-                    <p class="text-gray-600 mt-2">Nuestro propósito y apoyo a los artistas.</p>
+                <a href="mision.html" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-l-4 border-red-700 group">
+                    <h2 class="text-2xl font-merriweather font-bold text-gray-900 group-hover:text-red-700 transition">Misión</h2>
+                    <p class="text-gray-600 mt-2 text-sm">Nuestro propósito y valores.</p>
                 </a>
 
-                <a href="vision-2.html" class="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] border-b-4 border-red-700 block">
-                    <h2 class="text-3xl font-merriweather font-bold text-gray-900">Visión</h2>
-                    <p class="text-gray-600 mt-2">Nuestra resistencia y objetivos a largo plazo.</p>
+                <a href="vision-2.html" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-l-4 border-red-700 group">
+                    <h2 class="text-2xl font-merriweather font-bold text-gray-900 group-hover:text-red-700 transition">Visión</h2>
+                    <p class="text-gray-600 mt-2 text-sm">Hacia dónde nos dirigimos.</p>
                 </a>
 
-                <a href="galeria.html" class="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] border-b-4 border-red-700 block">
-                    <h2 class="text-3xl font-merriweather font-bold text-gray-900">Galería</h2>
-                    <p class="text-gray-600 mt-2">Explora las obras únicas disponibles.</p>
-                </a>
-
-                <a href="contacto.html" class="col-span-1 md:col-span-2 bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.03] border-b-4 border-red-700 block">
-                    <h2 class="text-3xl font-merriweather font-bold text-gray-900">Contacto</h2>
-                    <p class="text-gray-600 mt-2">Comunícate por Email, WhatsApp o escaneando nuestro QR.</p>
+                <a href="contacto.html" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-l-4 border-red-700 group">
+                    <h2 class="text-2xl font-merriweather font-bold text-gray-900 group-hover:text-red-700 transition">Contacto</h2>
+                    <p class="text-gray-600 mt-2 text-sm">Habla con nosotros.</p>
                 </a>
             </div>
         </div>

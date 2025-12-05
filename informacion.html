@@ -10,6 +10,14 @@
         :root { --color-primary: #8b3c3c; --color-secondary: #333333; --color-background: #f4f4f4; }
         .font-merriweather { font-family: 'Merriweather', serif; }
         .font-roboto { font-family: 'Roboto', sans-serif; }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
     </style>
 </head>
 <body class="font-roboto bg-gray-100">
@@ -27,13 +35,19 @@
         </div>
     </nav>
     
-    <main class="pt-32 pb-16 min-h-screen">
+    <main class="pt-32 pb-16 min-h-screen animate-fade-in">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl font-merriweather font-bold text-gray-900 mb-8 text-center border-b-4 border-red-700 inline-block pb-1">
                 Información
             </h1>
 
-            <div class="bg-white p-10 rounded-xl shadow-2xl">
+            <div class="bg-white p-10 rounded-xl shadow-2xl relative overflow-hidden">
+                <div class="flex justify-center mb-6">
+                    <div class="p-4 bg-red-100 rounded-full">
+                        <svg class="w-10 h-10 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                </div>
+
                 <p class="text-xl text-gray-700 leading-relaxed font-roboto">
                     En este espacio, puedes comprar piezas de arte únicas directamente de artistas independientes. También ofrecemos la posibilidad de pedir algunas obras personalizadas para que tu visión creativa se haga realidad. Si eres artista, puedes ponerte en contacto para vender tus propios trabajos, buscando apoyar a la comunidad de arte independiente y promover tu labor.
                 </p>
