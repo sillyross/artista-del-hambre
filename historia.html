@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artista del Hambre | Historia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .font-merriweather { font-family: 'Merriweather', serif; }
+        .font-roboto { font-family: 'Roboto', sans-serif; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+    </style>
+</head>
+<body class="font-roboto bg-gray-100 flex flex-col min-h-screen">
+
+    <nav class="bg-white shadow-xl fixed w-full z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <a href="index.html" class="text-3xl font-merriweather font-bold text-gray-900 hover:text-red-700 transition">Artista del Hambre</a>
+            <a href="index.html" class="text-gray-600 hover:text-red-700 font-bold">← Volver</a>
+        </div>
+    </nav>
+    
+    <main class="pt-32 pb-16 flex-grow animate-fade-in">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-10 rounded-xl shadow-xl">
+            
+            <h1 class="text-4xl md:text-5xl font-merriweather font-extrabold text-gray-900 mb-6">Nuestra Historia</h1>
+            
+            <div class="text-lg text-gray-700 leading-relaxed space-y-6">
+                <p>
+                    <span class="text-4xl float-left mr-2 font-merriweather text-red-700 font-bold">T</span>odo comenzó en el invierno de 2023, en un pequeño garaje mal iluminado. Éramos tres estudiantes cansados de que el arte fuera tratado únicamente como una mercancía de lujo. Veíamos a compañeros talentosos abandonar los pinceles por trabajos de oficina simplemente porque no tenían dónde exponer.
+                </p>
+                
+                <div class="border-l-4 border-red-700 pl-4 my-8 italic text-gray-500">
+                    "Decidimos que el hambre no sería de comida, sino de crear. Hambre de expresión."
+                </div>
+
+                <p>
+                    Al principio, "Artista del Hambre" no era una tienda, era una protesta. Colgábamos obras en cafeterías locales y parques públicos. Pero la gente empezó a preguntar: "¿Dónde puedo comprar esto?".
+                </p>
+                <p>
+                    Entendimos que para apoyar al artista, necesitábamos crear un ecosistema sostenible. Así nació nuestra tienda y colectivo. No solo vendemos cuadros; vendemos la historia detrás de cada trazo y aseguramos que el creador reciba el trato justo que merece.
+                </p>
+                <p>
+                    Hoy, somos un refugio para más de 50 artistas locales, manteniendo viva la llama de la creatividad independiente.
+                </p>
+            </div>
+            
+            <div class="mt-10 pt-6 border-t border-gray-200">
+                <a href="contacto.html" class="inline-block bg-red-700 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-800 transition">Únete a nuestra historia</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="font-roboto">&copy; 2025 Artista del Hambre. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

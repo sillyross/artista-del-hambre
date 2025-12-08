@@ -11,7 +11,6 @@
         .font-merriweather { font-family: 'Merriweather', serif; }
         .font-roboto { font-family: 'Roboto', sans-serif; }
         
-        /* Animación de entrada */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -21,19 +20,19 @@
         }
     </style>
 </head>
-<body class="font-roboto bg-gray-100">
+<body class="font-roboto bg-gray-100 flex flex-col min-h-screen">
 
     <nav class="bg-white shadow-xl fixed w-full z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-start items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="text-3xl font-merriweather font-bold text-gray-900">Artista del Hambre</span>
+                    <a href="index.html" class="text-3xl font-merriweather font-bold text-gray-900 hover:text-red-700 transition">Artista del Hambre</a>
                 </div>
             </div>
         </div>
     </nav>
     
-    <main class="pt-32 pb-16 min-h-screen animate-fade-in">
+    <main class="pt-32 pb-16 flex-grow animate-fade-in">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="text-center mb-16">
@@ -54,6 +53,16 @@
                         <h2 class="text-4xl font-merriweather font-bold text-white mb-2">Galería</h2>
                         <span class="text-gray-300 font-roboto border-b border-red-500 pb-1">Ver Obras Disponibles &rarr;</span>
                     </div>
+                </a>
+
+                <a href="historia.html" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-l-4 border-red-700 group">
+                    <h2 class="text-2xl font-merriweather font-bold text-gray-900 group-hover:text-red-700 transition">Nuestra Historia</h2>
+                    <p class="text-gray-600 mt-2 text-sm">Cómo nació este refugio creativo.</p>
+                </a>
+
+                <a href="tecnicas.html" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-l-4 border-red-700 group">
+                    <h2 class="text-2xl font-merriweather font-bold text-gray-900 group-hover:text-red-700 transition">Técnicas de Pintura</h2>
+                    <p class="text-gray-600 mt-2 text-sm">Óleo, Acuarela, Carboncillo y más.</p>
                 </a>
 
                 <a href="informacion.html" class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border-l-4 border-red-700 group">
@@ -79,7 +88,7 @@
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-6">
+    <footer class="bg-gray-800 text-white py-6 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="font-roboto">&copy; 2025 Artista del Hambre. Todos los derechos reservados.</p>
         </div>
